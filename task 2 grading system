@@ -1,0 +1,41 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+    int noofstudents;
+    cout<<"Enter the no of students : ";
+    cin>>noofstudents;
+    string names[noofstudents];
+    double grades[noofstudents];
+    double sum=0;
+    double mingrade=1000,maxgrade=0;
+    for(int i=0;i<noofstudents;i++)
+    {
+        cout<<"Enter the name of "<<i+1<<" student :";
+        cin>>names[i];
+        
+        cout<<"Enter the grade of "<<i+1<<" student :";
+        cin>>grades[i];
+    }
+    for(int i=0;i<noofstudents;i++)
+    {
+        if(grades[i]>=0 && grades[i]<=100)
+        {
+            sum+=grades[i];
+            mingrade=min(mingrade,grades[i]);
+            maxgrade=max(maxgrade,grades[i]);
+        }
+    }
+    cout<<endl;
+    double avg=sum/noofstudents;
+    cout<<"Results : \n";
+    cout<<"Average grade : "<<avg<<endl;
+    cout<<"Highest grade is : "<<maxgrade<<endl;
+    cout<<"Lowest grade is : "<<mingrade<<endl;
+    cout<<"Student's individual grades : "<<endl;
+    for(int i=0;i<noofstudents;i++)
+    {
+        cout<<names[i]<<" "<<grades[i]<<endl;
+    }
+}
