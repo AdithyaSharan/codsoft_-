@@ -1,0 +1,38 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int wordcount(const string& filename)
+{
+    ifstream ob(filename);
+    if(!ob)
+    {
+        cout<<"Error opening the file!!!"<<endl;
+        cout<<"Enter a valid filename.";
+        return -1;
+    }
+    string line;
+    while(!ob.eof())
+    {
+        getline(ob,line);
+    }
+    int count=0;
+    for(int i=0;i<line.length();i++)
+    {
+        if(line[i]==' '||line[i]=='.')
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int main()
+{
+    string filename;
+    cout<<"Enter the filename : ";
+    cin>>filename;
+    int totalwords=wordcount(filename);
+    if(totalwords>=0)
+    {
+        cout<<"The total number of words in the given file is : "<<totalwords<<endl;
+    }
+}
